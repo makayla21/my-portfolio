@@ -5,6 +5,7 @@
     <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+    <script src="newScript.js"></script>
   </head>
   <body style="background-color:lightsteelblue;">
     <div id="content">
@@ -23,10 +24,21 @@
       <p>Click <a href="https://www.linkedin.com/in/makayla-price-a3b9381b6">here</a> to view my LinkedIn Profile.</p>
       <p>Click <a href="https://github.com/makayla21">here</a> to view my GitHub Profile.</p>
       <br>
+      <p>Click this button to see the response made by the server.</p>
+      <button onclick="showResponse();">Get Response</button>
+      <p id="response-container"></p>
       <p>Click <a href="/hello">here</a> to see content created by server code.</p>
       <p>Click here to get a random message😄:</p> 
       <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>  
+      <div id="greeting-container"></div> 
+      
+      <form action = "/form-handler" method = "POST">
+        
+          <p>Enter email address for further contact:</p>
+          <textarea name = "text-input"></textarea>
+          <br/>
+          <input type = "submit" />
+      </form>
     </div>
   </body>
 </html>
