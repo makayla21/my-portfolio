@@ -39,6 +39,42 @@
           <br/>
           <input type = "submit" />
       </form>
+    <script>
+      function requestTranslation() {
+        const text = document.getElementById('text').value;
+        const languageCode = document.getElementById('language').value;
+
+        const resultContainer = document.getElementById('result');
+        resultContainer.innerText = 'Loading...';
+
+        const params = new URLSearchParams();
+        params.append('text', text);
+        params.append('languageCode', languageCode);
+
+        fetch('/translate', {
+          method: 'POST',
+          body: params
+        }).then(response => response.text())
+        .then((translatedMessage) => {
+          resultContainer.innerText = translatedMessage;
+        });
+      }
+    </script> 
+        <h1>Translation</h1>
+        <p>Here is a fun translator. Type any message here and choose a language, then click submit to translate it!</p>
+        <textarea id="text"></textarea>
+        <select id="language">
+            <option value="es">English</option>
+            <option value="zh">Chinese</option>
+            <option value="es">Spanish</option>
+            <option value="hi">Hindi</option>
+            <option value="ar">Arabic</option>
+        </select>
+
+        <button onclick="requestTranslation();">Translate</button>
+
+        <hr/>
+        <div id="result"></div>
     </div>
   </body>
 </html>
